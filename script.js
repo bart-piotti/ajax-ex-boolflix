@@ -29,14 +29,11 @@ function cercaFilm() {
                     context = {
                         titolo: film_trovati[i].title,
                         lingua: film_trovati[i].original_language.toUpperCase(),
-                        voto: film_trovati[i].vote_average
+                        voto: film_trovati[i].vote_average,
                     }
 
                     if (film_trovati[i].original_title != film_trovati[i].title) {
-                        context.originale = film_trovati[i].original_title
-                    }
-                    else {
-                        $('#ori').hide()
+                        context.originale = "<p><b>Titolo originale: </b>" + film_trovati[i].original_title + "</p>"
                     }
 
                     $('.film-container').append(template(context))

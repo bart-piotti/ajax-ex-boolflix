@@ -52,12 +52,12 @@ input:focus {
 
 .card {
     background-color: white;
-    padding: 15px;
     margin: 15px;
     text-align: center;
-    width: 20%;
-}
-
-.card p {
-    margin: 10px 0;
+    width: 40%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 20px;
 }
