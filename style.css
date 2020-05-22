@@ -39,6 +39,21 @@ header span {
     color: white;
 }
 
+input {
+    height: 35px;
+    width: 331px;
+    background: black;
+    box-shadow: none;
+    border: none;
+    color: white;
+    padding: 0px 10px;
+    font-size: 23px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, .9);
+}
+
 input:focus {
     outline: none;
 }
@@ -60,4 +75,15 @@ input:focus {
     flex-direction: column;
     justify-content: space-evenly;
     padding: 0 20px;
+}
+
+.voto {
+    color: green;
+    font-weight: bold;
+}
+.rosso {
+    color: red;
+}
+.giallo {
+    color: orange;
 }

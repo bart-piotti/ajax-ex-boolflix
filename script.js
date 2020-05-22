@@ -24,7 +24,9 @@ function cercaFilm() {
             },
             'success': function(data){
                 film_trovati = data.results
+
                 $('.film-container *').remove()
+
                 for (var i = 0; i < film_trovati.length; i++) {
                     context = {
                         titolo: film_trovati[i].title,
@@ -33,11 +35,20 @@ function cercaFilm() {
                         card_class: 'film' + i,
                         originale: film_trovati[i].original_title
                     }
+
                     $('.film-container').append(template(context))
+
                     if (film_trovati[i].title == film_trovati[i].original_title) {
                         $('.film' + i + ' .ori').hide()
                     }
-                }
+
+                    if (film_trovati[i].vote_average < 7 && film_trovati[i].vote_average >= 4) {
+                        $('.film' + i + ' .voto').addClass('giallo')
+                    }
+                    else if (film_trovati[i].vote_average < 4) {
+                        $('.film' + i + ' .voto').addClass('rosso')
+                    }
+                }// /for
             }// /Success
         })// /ajax
     }
