@@ -35,7 +35,7 @@ function cercaFilm() {
                     }
                     $('.film-container').append(template(context))
                     if (film_trovati[i].title == film_trovati[i].original_title) {
-                        $('.film' + i).hide()
+                        $('.film' + i + ' .ori').hide()
                     }
                 }
             }// /Success
