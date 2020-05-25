@@ -59,12 +59,21 @@ input:focus {
     outline: none;
 }
 
-h2 {
+.ricerca i {
     color: white;
-    display: none;
-    margin: 20px 0;
+    font-size: 25px;
+    margin-right: 10px;
+    cursor: pointer;
 }
-.film-container {
+
+h3 {
+    color: white;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 38px;
+    display: none;
+}
+.film-container, .serie-container {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
