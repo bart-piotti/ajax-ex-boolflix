@@ -83,6 +83,21 @@ h2 {
     padding: 0 20px;
 }
 
+.lingua {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lingua img {
+    width: 25px;
+    margin-left: 10px;
+}
+
+.lingua span {
+    margin-left: 5px;
+}
+
 .fa-star {
     color: gold;
 }

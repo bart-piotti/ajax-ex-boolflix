@@ -40,6 +40,9 @@ function cercaFilm() {
                     //Salvo il voto del film da 1 a 5 in una variabile
                     voto = Math.round(film_trovati[i].vote_average / 2)
                     stelle(voto, i)
+
+                    mostraLingua(i)
+
                     if (film_trovati[i].title == film_trovati[i].original_title) {
                         $('.film' + i + ' .ori').hide()
                     }
@@ -56,5 +59,19 @@ function stelle(quantita, selettore) {
     }
     for (var y = 0; y < 5 - voto; y++) {
         $('.film' + selettore + ' .voto').append('<i class="far fa-star"></i>')
+    }
+}
+
+function mostraLingua(indice) {
+    lingue = {
+        en: 'img/eng.png',
+        it: 'img/ita.png',
+        fr: 'img/fra.png',
+    }
+    for (var key in lingue) {
+        if (key == film_trovati[indice].original_language) {
+            $('.film' + indice + ' .lingua span').remove()
+            $('.film' + indice + ' .lingua img').attr('src', lingue[key])
+        }
     }
 }
