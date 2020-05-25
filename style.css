@@ -29,7 +29,7 @@ header span {
 }
 
 .container {
-    width: 1070px;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
 }
@@ -59,6 +59,11 @@ input:focus {
     outline: none;
 }
 
+h2 {
+    color: white;
+    display: none;
+    margin: 20px 0;
+}
 .film-container {
     justify-content: center;
     align-items: center;
@@ -78,13 +83,6 @@ input:focus {
     padding: 0 20px;
 }
 
-.voto {
-    color: green;
-    font-weight: bold;
-}
-.rosso {
-    color: red;
-}
-.giallo {
-    color: orange;
+.fa-star {
+    color: gold;
 }

@@ -31,25 +31,30 @@ function cercaFilm() {
                     context = {
                         titolo: film_trovati[i].title,
                         lingua: film_trovati[i].original_language.toUpperCase(),
-                        voto: film_trovati[i].vote_average,
                         card_class: 'film' + i,
                         originale: film_trovati[i].original_title
                     }
 
                     $('.film-container').append(template(context))
 
+                    //Salvo il voto del film da 1 a 5 in una variabile
+                    voto = Math.round(film_trovati[i].vote_average / 2)
+                    stelle(voto, i)
                     if (film_trovati[i].title == film_trovati[i].original_title) {
                         $('.film' + i + ' .ori').hide()
-                    }
-
-                    if (film_trovati[i].vote_average < 7 && film_trovati[i].vote_average >= 4) {
-                        $('.film' + i + ' .voto').addClass('giallo')
-                    }
-                    else if (film_trovati[i].vote_average < 4) {
-                        $('.film' + i + ' .voto').addClass('rosso')
                     }
                 }// /for
             }// /Success
         })// /ajax
+    }
+}
+
+function stelle(quantita, selettore) {
+    //Aggiungo tante stelline quante ne indica la var voto
+    for (var x = 0; x < voto; x++) {
+        $('.film' + selettore + ' .voto').append('<i class="fas fa-star"></i>')
+    }
+    for (var y = 0; y < 5 - voto; y++) {
+        $('.film' + selettore + ' .voto').append('<i class="far fa-star"></i>')
     }
 }
