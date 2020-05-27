@@ -73,6 +73,10 @@ h3 {
     font-size: 38px;
     display: none;
 }
+
+.film p {
+    color: white;
+}
 .film-container, .serie-container {
     justify-content: center;
     align-items: center;

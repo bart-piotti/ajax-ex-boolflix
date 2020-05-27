@@ -16,6 +16,7 @@ function ricerca() {
     $('.main *').remove()
     cerca('movie')
     cerca('tv')
+    console.log($('.film0'));
 }
 
 function cerca(daCercare) {
@@ -49,7 +50,7 @@ function cerca(daCercare) {
 
                     //Se c'è l'overview la inserisco in una variabile
                     var overview = film_trovati[i].overview.substr(0, 120);
-                    //Se non c'è l'overview => con handlebars aggiungo la classe 'hidden' al <p class='overview'> 
+                    //Se non c'è l'overview => con handlebars aggiungo la classe 'hidden' al <p class='overview'>
                     if (overview.length == 0) {
                         var is_hidden = 'hidden';
                     } else {
