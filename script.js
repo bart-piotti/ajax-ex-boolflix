@@ -16,7 +16,6 @@ function ricerca() {
     $('.main *').remove()
     cerca('movie')
     cerca('tv')
-    console.log($('.film0'));
 }
 
 function cerca(daCercare) {
@@ -95,6 +94,16 @@ function cerca(daCercare) {
                     }
 
                 }// /for
+                if ( $('.film0').length > 0 ) {
+                    $('.film p').hide()
+                }else {
+                    $('.film p').show()
+                }
+                if ( $('.serie0').length > 0 ) {
+                    $('.serie p').hide()
+                }else {
+                    $('.serie p').show()
+                }
             }// /Success
         })// /ajax
     }

@@ -68,15 +68,20 @@ input:focus {
 
 h3 {
     color: white;
-    margin: 20px 0;
+    margin: 70px 0 0;
     text-align: center;
     font-size: 38px;
     display: none;
 }
 
-.film p {
-    color: white;
+.film p, .serie p {
+    color: rgba(255, 255, 255, 0.7);
+    display: none;
+    font-size: 28px;
+    text-align: center;
+    margin: 15px;
 }
+
 .film-container, .serie-container {
     justify-content: center;
     align-items: center;
