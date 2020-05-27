@@ -1,11 +1,10 @@
 var source = $('#movie-card-template').html();
 var template = Handlebars.compile(source);
-
+var url_base = 'https://image.tmdb.org/t/p/';
+var dimensione_poster = 'w500';
 
 $(document).ready(function() {
-    $('.fa-search').click(function(){
-        ricerca()
-    })
+    $('.fa-search').click(ricerca)
     $('input').keypress(function(e){
         if (e.which == 13) {
             ricerca()
@@ -41,12 +40,30 @@ function cerca(daCercare) {
                 }else {
                     $('h3').show()
                 }
+
+
                 for (var i = 0; i < film_trovati.length; i++) {
+                    //Salvo in una variabile l'immagine da usare come poster
+                    if (film_trovati[i].poster_path != null) {
+                        var poster_path = url_base + dimensione_poster + film_trovati[i].poster_path
+                    } else {
+                        poster_path = 'img/poster_not_available.jpg'
+                    }
+
+                    var overview = film_trovati[i].overview.substr(0, 120);
+                    if (overview.length == 0) {
+                        var is_hidden = 'hidden';
+                    } else {
+                        is_hidden = '';
+                    }
                     context = {
+                        img_url: poster_path,
                         titolo: film_trovati[i].title,
                         lingua: film_trovati[i].original_language.toUpperCase(),
                         card_class: 'film' + i,
-                        originale: film_trovati[i].original_title
+                        originale: film_trovati[i].original_title,
+                        overview: overview + '...',
+                        hidden: is_hidden
                     }
                     //Se .title è undefined allora è una serie, title ==> name
                     if (film_trovati[i].title == undefined) {
@@ -76,6 +93,7 @@ function cerca(daCercare) {
                             $('.film' + i + ' .ori').hide()
                         }
                     }
+
                 }// /for
             }// /Success
         })// /ajax

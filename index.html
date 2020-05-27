@@ -35,12 +35,17 @@
 
     <script id="movie-card-template" type="text/x-handlebars-template">
         <div class="card {{card_class}}">
+            <div class="img_wrap">
+                <img src="{{img_url}}" alt="{{titolo}}">
+            </div>
             <p><b>Titolo:</b> {{titolo}}</p>
             <p class="ori"><b>Titolo originale:</b> {{originale}}</p>
             <p class="lingua">
                 <b>Lingua:</b>
                 <span>{{lingua}}</span>
-                <img src="" alt=""></p>
+                <img src="" alt="">
+            </p>
+            <p class="overview {{hidden}}"><b>Trama: </b>{{overview}}</p>
             <p>
                 <b>Voto:</b>
                 <span class="voto"></span>
