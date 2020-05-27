@@ -20,6 +20,7 @@ function ricerca() {
 
 function cerca(daCercare) {
     if ($('input').val() != '') {
+        $('h3').show()
         film_cercato = $('.ricerca input').val()
         $.ajax({
             'url': 'https://api.themoviedb.org/3/search/' + daCercare,
@@ -35,11 +36,7 @@ function cerca(daCercare) {
             'success': function(data){
                 film_trovati = data.results
                 console.log(film_trovati);
-                if (film_trovati.length == 0) {
-                    $('h3').hide()
-                }else {
-                    $('h3').show()
-                }
+
 
 
                 for (var i = 0; i < film_trovati.length; i++) {
@@ -50,7 +47,9 @@ function cerca(daCercare) {
                         poster_path = 'img/poster_not_available.jpg'
                     }
 
+                    //Se c'è l'overview la inserisco in una variabile
                     var overview = film_trovati[i].overview.substr(0, 120);
+                    //Se non c'è l'overview => con handlebars aggiungo la classe 'hidden' al <p class='overview'> 
                     if (overview.length == 0) {
                         var is_hidden = 'hidden';
                     } else {
@@ -97,8 +96,6 @@ function cerca(daCercare) {
                 }// /for
             }// /Success
         })// /ajax
-    } else {
-        $('h3').hide()
     }
 }
 
